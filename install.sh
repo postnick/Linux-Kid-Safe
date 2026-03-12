@@ -53,10 +53,30 @@ if [[ "$DESKTOP" == *KDE* ]]; then
   KDE_OPTION="ON"
 fi
 
+####I"m not sure what this was but it doesn't work
+##"gnome" "GNOME lockdown policies" $GNOME_OPTION \
+##"kde" "KDE lockdown policies" $KDE_OPTION \
 
-"gnome" "GNOME lockdown policies" $GNOME_OPTION \
-"kde" "KDE lockdown policies" $KDE_OPTION \
+############################################
+# Target Users
+############################################
+TARGET_USER=""
+while [ $# -gt 0 ]; do
+  case $1 in
+    -u|--user) shift; TARGET_USER=$1 ;;
+    *) break ;;
+  esac
+  shift
+done
 
+export TARGET_USER
+…
+for choice in $CHOICES; do
+  case $choice in
+    "\"users\"") bash modules/users.sh ;;
+    …
+  esac
+done
 
 ############################################
 # Install distro dependencies

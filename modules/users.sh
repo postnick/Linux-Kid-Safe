@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-read -p "Enter kid username: " KIDUSER
+
+if [ -z "$TARGET_USER" ]; then
+  read -p "Enter kid username: " KIDUSER
+else
+  KIDUSER=$TARGET_USER
+fi
 
 if id "$KIDUSER" &>/dev/null; then
   echo "User already exists. Skipping creation."
