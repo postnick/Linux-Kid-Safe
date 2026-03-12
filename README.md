@@ -7,6 +7,11 @@ I Started this project with the help of Chat GPT on March 12 2026. I know it sta
 ---
 A simple toolkit for locking down Linux desktops for children.
 
+# Danger - At the moment this is a very basic script that only implements a few features. It is not a complete solution and should not be used as-is in production environments. Use at your own risk and always test in a safe environment first.
+
+#Will possibly destroy all users on the system if used incorrectly. Always backup your data before running this script.
+
+
 ---
 
 ## Supported Distros
