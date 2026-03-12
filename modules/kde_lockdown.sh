@@ -8,3 +8,9 @@ shell_access=false
 EOF
 
 echo "KDE restrictions applied."
+
+
+"kde" "KDE Plasma lockdown policies" OFF \
+"\"kde\"")
+  bash modules/kde_lockdown.sh
+  ;;

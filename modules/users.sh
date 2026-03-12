@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-## Need to check or create a new user group for kids if for multipe users.
-
-
 read -p "Enter kid username: " KIDUSER
+
+if id "$KIDUSER" &>/dev/null; then
+  echo "User already exists. Skipping creation."
+  exit 0
+fi
 
 useradd -m "$KIDUSER"
 passwd "$KIDUSER"
@@ -11,4 +13,4 @@ passwd "$KIDUSER"
 gpasswd -d "$KIDUSER" wheel 2>/dev/null || true
 gpasswd -d "$KIDUSER" sudo 2>/dev/null || true
 
-echo "User created without admin privileges."
+echo "User $KIDUSER created without admin privileges."
